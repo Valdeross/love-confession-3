@@ -9,10 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
   
-  <!-- Plyr (GitHub Media Player) CSS for YouTube/Audio playback -->
-  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-  
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=3.7" />
 </head>
 <body>
 
@@ -40,14 +37,21 @@
 
     <!-- ══ COVER ══ -->
     <section class="page active" id="page-cover">
-      <div class="cover-bg"></div>
+      <div class="cover-bg">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="glow-orb glow-orb-3"></div>
+      </div>
       <div class="cover-content">
         <div class="cover-image-wrap">
           <img src="images/cover_hero.png" alt="Ноты и письмо" class="cover-img float-anim" />
         </div>
         <div class="cover-text">
           <p class="cover-subtitle">для тебя</p>
-          <h1 class="cover-title">Признание<br/><em>в строчках</em></h1>
+          <h1 class="cover-title">
+            <span class="cover-title-gradient">Признание</span><br/>
+            <em>в строчках</em>
+          </h1>
           <p class="cover-desc">9 сцен · 9 песен · одно чувство</p>
           <button class="btn-start" id="btn-start">Начать <span class="arrow-anim">→</span></button>
         </div>
@@ -65,13 +69,14 @@
           </div>
         </div>
         <div class="scene-text-col">
-          <div class="scene-number">Сцена 1</div>
           <h2 class="scene-title">Как всё случилось</h2>
           <blockquote class="scene-quote">
             «Мы не знали друг друга до этого лета,<br/>
-            болтались по свету, земле и воде —<br/>
-            и совершенно случайно мы взяли билеты<br/>
-            на соседние кресла»
+            Мы болтались по свету, земле и воде,<br/>
+            И совершенно случайно мы взяли билеты<br/>
+            На соседние кресла на большой высоте.<br/>
+            И моё сердце остановилось,<br/>
+            Моё сердце замерло...»
           </blockquote>
           <div class="scene-song">
             <div class="song-artist">Сплин</div>
@@ -81,7 +86,6 @@
               <a href="https://open.spotify.com/track/5LOhvLGX0TpTq3ARrEf5AN" target="_blank" class="song-link sp">♫ Spotify</a>
             </div>
           </div>
-          <div class="scene-mood">тихое · случайное · начало</div>
         </div>
       </div>
       <div class="scene-nav-row">
@@ -94,12 +98,13 @@
     <section class="page" id="page-2">
       <div class="scene-layout scene-layout--right">
         <div class="scene-text-col">
-          <div class="scene-number">Сцена 2</div>
           <h2 class="scene-title">Богатство — это мы</h2>
           <blockquote class="scene-quote">
             «Мы решили: дорога каждая минута.<br/>
-            Впечатления — наша валюта.<br/>
-            Мы сказочно богаты — ты и я»
+            Мы валяем дурака, и пока впечатления — наша валюта.<br/>
+            Мы сказочно богаты.<br/>
+            Сказочно богаты.<br/>
+            Сказочно богаты — ты и я»
           </blockquote>
           <div class="scene-song">
             <div class="song-artist">Дайте танк (!)</div>
@@ -109,7 +114,6 @@
               <a href="https://open.spotify.com/track/5LOhvLGX0TpTq3ARrEf5AN" target="_blank" class="song-link sp">♫ Spotify</a>
             </div>
           </div>
-          <div class="scene-mood">радостное · живое · движение</div>
         </div>
         <div class="scene-image-col">
           <div class="scene-image-wrap">
@@ -134,13 +138,14 @@
           </div>
         </div>
         <div class="scene-text-col">
-          <div class="scene-number">Сцена 3</div>
           <h2 class="scene-title">Привет, солнце. И Луна</h2>
           <blockquote class="scene-quote">
-            «Солнце вышло покурить на балкон...<br/>
+            «Солнце вышло покурить на балкон,<br/>
+            Стрельнуло у ветра сижку и влюбилось в луну.<br/>
+            Среди серых, однотипных бетонных окон,<br/>
             Солнце ясное влюбилось в луну»
           </blockquote>
-          <div class="scene-note">здесь — привет «солнце», и отсылка к кошке Луне 🐈</div>
+
           <div class="scene-song">
             <div class="song-artist">алёна швец.</div>
             <div class="song-track">солнце вышло покурить</div>
@@ -149,7 +154,6 @@
               <a href="https://open.spotify.com/track/6IPwKM3fUUzlElbvKw2sKl" target="_blank" class="song-link sp">♫ Spotify</a>
             </div>
           </div>
-          <div class="scene-mood">лиричное · с теплом · кадр с котами</div>
         </div>
       </div>
       <div class="scene-nav-row">
@@ -162,13 +166,16 @@
     <section class="page" id="page-4">
       <div class="scene-layout scene-layout--right">
         <div class="scene-text-col">
-          <div class="scene-number">Сцена 4</div>
           <h2 class="scene-title">Котя + Луна и Афина</h2>
           <blockquote class="scene-quote">
-            «Я и твой кот греем твою кровать —<br/>
-            без нас не уснуть, от нас не сбежать»
+            «Когда она ложилась спать,<br/>
+            Он догонял ее во снах.<br/>
+            Красивый юноша с цветком,<br/>
+            Под песни Beatles, босиком...<br/><br/>
+            Я и твой кот греем твою кровать,<br/>
+            Без нас не уснуть, от нас не сбежать»
           </blockquote>
-          <div class="scene-note">котя + кошки в одной строчке 🐱🐱</div>
+
           <div class="scene-song">
             <div class="song-artist">Свидание</div>
             <div class="song-track">Я и твой кот</div>
@@ -177,7 +184,6 @@
               <a href="https://open.spotify.com/track/5LOhvLGX0TpTq3ARrEf5AN" target="_blank" class="song-link sp">♫ Spotify</a>
             </div>
           </div>
-          <div class="scene-mood">домашнее · уютное · котики</div>
         </div>
         <div class="scene-image-col">
           <div class="scene-image-wrap">
@@ -202,14 +208,27 @@
           </div>
         </div>
         <div class="scene-text-col">
-          <div class="scene-number">Сцена 5</div>
           <h2 class="scene-title">Нежные обращения</h2>
           <blockquote class="scene-quote scene-quote--en">
             «Shall we look at the moon, my little loon?<br/>
-            Did you get enough love, my little dove?<br/>
-            Why do you cry?»
+            Why do you cry?<br/>
+            Make the most of your life, while it is rife<br/>
+            While it is light...<br/>
+            Well you do enough talk<br/>
+            My little hawk, why do you cry?»
           </blockquote>
-          <div class="scene-note">тихий момент · крупный план · нежные прозвища — как ты называешь её</div>
+          <div class="text-letter-trigger-wrap">
+            <button class="text-letter-trigger" id="scene5-letter-trigger" title="Открыть письмо">✉</button>
+          </div>
+          <div class="love-letter-card">
+            <p class="love-letter-text">
+              «Моя любимая, нежная девочка...<br><br>
+              Каждый раз, когда я смотрю на тебя, я понимаю, насколько мне повезло. В мире столько суеты и шума, но рядом с тобой всё замирает. Ты — мой самый тёплый свет, моё утешение и моя бесконечная радость. Я обожаю каждый момент, проведенный вместе: наши разговоры, наши молчания, твои улыбки и твой смех. <br><br>
+              Ты стала для меня всем — моим солнцем, согревающим днём, и моей луной, охраняющей мой покой ночью. Я бесконечно благодарен судьбе за тебя, за твою заботу и ту искреннюю любовь, которую ты мне даришь. Я обещаю всегда беречь тебя, быть твоей опорой и любить тебя с каждым днём всё сильнее. <br><br>
+              Я люблю тебя до луны и обратно.»
+            </p>
+            <div class="love-letter-signature">Твой Котя ❤️</div>
+          </div>
           <div class="scene-song">
             <div class="song-artist">Sufjan Stevens</div>
             <div class="song-track">Fourth of July</div>
@@ -218,7 +237,6 @@
               <a href="https://open.spotify.com/track/5Qnrgqy1pAm9GyNQOgyVFz" target="_blank" class="song-link sp">♫ Spotify</a>
             </div>
           </div>
-          <div class="scene-mood">тихое · интимное · крупный план</div>
         </div>
       </div>
       <div class="scene-nav-row">
@@ -231,15 +249,14 @@
     <section class="page" id="page-6">
       <div class="scene-layout scene-layout--right">
         <div class="scene-text-col">
-          <div class="scene-number">Сцена 6</div>
           <h2 class="scene-title">Прямое признание</h2>
           <blockquote class="scene-quote scene-quote--big">
             «Пожалуйста, будь моим,<br/>
-            пожалуйста, будь моим смыслом.<br/>
+            Пожалуйста, будь моим смыслом.<br/>
             Мы одни на целой земле,<br/>
-            в самом сердце моих картин.<br/>
+            В самом сердце моих картин.<br/>
             Я нуждаюсь в твоём тепле,<br/>
-            я хочу быть смыслом твоим»
+            Я хочу быть смыслом твоим»
           </blockquote>
           <div class="scene-song">
             <div class="song-artist">Flëur</div>
@@ -249,7 +266,6 @@
               <a href="https://open.spotify.com/album/5HzlU8xbuliHrDWAfXsrFq" target="_blank" class="song-link sp">♫ Spotify</a>
             </div>
           </div>
-          <div class="scene-mood">глубокое · серьёзное · стоп-кадр</div>
         </div>
         <div class="scene-image-col">
           <div class="scene-image-wrap">
@@ -275,10 +291,10 @@
           </div>
         </div>
         <div class="scene-text-col">
-          <div class="scene-number">Сцена 7</div>
           <h2 class="scene-title">Кульминация. Всё для тебя</h2>
           <blockquote class="scene-quote scene-quote--climax">
             «Хочешь солнце вместо лампы?<br/>
+            Хочешь за окошком Альпы?<br/>
             Хочешь, я отдам все песни?<br/>
             Про тебя отдам все песни.<br/>
             Ты же видишь — я живу тобою.<br/>
@@ -293,7 +309,6 @@
               <a href="https://open.spotify.com/track/iz6S2a94Gy4" target="_blank" class="song-link sp">♫ Spotify</a>
             </div>
           </div>
-          <div class="scene-mood">кульминация · взрыв · динамика</div>
         </div>
       </div>
       <div class="scene-nav-row">
@@ -306,12 +321,13 @@
     <section class="page" id="page-8">
       <div class="scene-layout scene-layout--right">
         <div class="scene-text-col">
-          <div class="scene-number">Сцена 8</div>
           <h2 class="scene-title">Финал. Просто и честно</h2>
           <blockquote class="scene-quote scene-quote--en scene-quote--big">
-            «My girl, my girl, my girl —<br/>
-            you will be my girl.<br/>
-            You will be my world»
+            «My girl, my girl, my girl<br/>
+            You will be my girl<br/>
+            You will be my world<br/>
+            My world, my world, my world<br/>
+            You will be my girl»
           </blockquote>
           <div class="scene-song">
             <div class="song-artist">girl in red</div>
@@ -321,7 +337,6 @@
               <a href="https://open.spotify.com/track/6IPwKM3fUUzlElbvKw2sKl" target="_blank" class="song-link sp">♫ Spotify</a>
             </div>
           </div>
-          <div class="scene-mood">нежный финал · просто · честно</div>
         </div>
         <div class="scene-image-col">
           <div class="scene-image-wrap">
@@ -346,13 +361,15 @@
           </div>
         </div>
         <div class="scene-text-col">
-          <div class="scene-number">Сцена 9</div>
           <h2 class="scene-title">Послесловие. Это только начало</h2>
           <blockquote class="scene-quote">
             «Это не первое и не последнее утро,<br/>
-            что я тебе подарю.<br/>
-            Мы слишком молоды, чтобы вести себя мудро —<br/>
-            я знаю, что говорю»
+            Что я тебе подарю.<br/>
+            Мы слишком молоды, чтобы вести себя мудро,<br/>
+            Я знаю, что говорю.<br/>
+            Это не первое и не последнее утро,<br/>
+            Никто не отнимет их.<br/>
+            Мы подозрительно мудрые для молодых»
           </blockquote>
           <div class="scene-song">
             <div class="song-artist">Дайте танк (!)</div>
@@ -362,7 +379,12 @@
               <a href="https://open.spotify.com/track/0aKl63MnUIVKkXlVtp2vLr" target="_blank" class="song-link sp">♫ Spotify</a>
             </div>
           </div>
-          <div class="scene-mood">тёплое послесловие · fade out · улыбка</div>
+          <div class="outro-cta-wrap">
+            <div class="outro-heart-trigger" id="outroHeartBtn" title="Секретная пасхалка">
+              <div class="outro-heart-icon">❤️</div>
+            </div>
+            <div class="outro-heart-hint">Прикоснись к сердцу...</div>
+          </div>
           <button class="btn-start btn-epilogue" id="btn-back-home">↩ к началу</button>
         </div>
       </div>
@@ -376,8 +398,9 @@
   <!-- ░░ FLOATING HEARTS ░░ -->
   <div id="hearts-container" aria-hidden="true"></div>
 
-  <!-- ░░ MUSIC PLAYER (Plyr based) ░░ -->
+  <!-- ░░ MUSIC PLAYER ░░ -->
   <div id="custom-music-player" class="player-hidden">
+    <div id="player-lyrics-tooltip" class="player-lyrics-tooltip"></div>
     <div class="player-track-info">
       <div class="player-cover-wrap">
         <img id="player-cover-img" src="images/cover_hero.png" alt="Cover" />
@@ -398,13 +421,26 @@
     </div>
   </div>
 
-  <!-- Hidden plyr container for video/audio loading -->
-  <div id="plyr-container" style="display: none;">
-    <div id="plyr-player"></div>
+  <!-- Hidden YouTube player (positioned offscreen, NOT display:none — YT requires a visible iframe) -->
+  <div id="yt-player-container">
+    <div id="yt-player"></div>
   </div>
 
-  <!-- Plyr (GitHub Media Player) JS CDN -->
-  <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-  <script src="app.js"></script>
+  <!-- Easter Egg Modal (Love Letter Envelope) -->
+  <div id="loveLetterModal" class="love-letter-modal">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="letter-envelope" id="letterEnvelope">
+      <div class="envelope-flap"></div>
+      <div class="envelope-body"></div>
+      <div class="letter-paper">
+        <button class="close-letter-btn" id="closeLetterBtn" aria-label="Закрыть">×</button>
+        <div class="letter-content" id="letterTextContainer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- YouTube IFrame Player API (official Google API) -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="app.js?v=3.7"></script>
 </body>
 </html>
