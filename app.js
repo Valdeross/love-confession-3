@@ -10,15 +10,15 @@
 //  start = seconds to seekTo when loading
 // ══════════════════════════════════
 const TRACKS = {
-  '1': { videoId: '-UzDZMNZQ7Q', start: 0,   end: 20,  title: 'Моё сердце',              artist: 'Сплин',             cover: 'images/scene1_seats.png', lyrics: '«Мы не знали друг друга до этого лета...»' },
-  '2': { videoId: 'fgiBmUy4UcM', start: 42,  end: 72,  title: 'Мы',                      artist: 'Дайте танк (!)',     cover: 'images/scene2_travel.png', lyrics: '«Мы решили: дорога каждая минута...»' },
-  '3': { videoId: 'VG1zmgkDv-g', start: 0,   end: 22,  title: 'солнце вышло покурить',    artist: 'алёна швец.',       cover: 'images/scene3_sun_moon.png', lyrics: '«Солнце вышло покурить на балкон...»' },
-  '4': { videoId: '3u9M6NzP0R0', start: 81,  end: 110, title: 'Я и твой кот',            artist: 'Свидание',          cover: 'images/scene4_cats.png', lyrics: '«Я и твой кот греем твою кровать...»' },
-  '5': { videoId: 'JTeKpWp8Psw', start: 125, end: 160, title: 'Fourth of July',          artist: 'Sufjan Stevens',    cover: 'images/scene5_moon_tender.png', lyrics: '«Did you get enough love, my little dove?...»' },
-  '6': { videoId: 'XLRHkt6WNkg', start: 60,  end: 75,  title: 'Будь моим смыслом',       artist: 'Flëur',             cover: 'images/scene6_heart_confession.png', lyrics: '«Пожалуйста, будь моим смыслом...»' },
-  '7': { videoId: 'xpJ_fYyAeYk', start: 95,  end: 115, title: 'ХОЧЕШЬ?',                artist: 'Земфира',           cover: 'images/scene7_sun_lamp.png', lyrics: '«Хочешь солнце вместо лампы?...»' },
-  '8': { videoId: 'iggmiF7DNoM', start: 42,  end: 65,  title: 'we fell in love in october', artist: 'girl in red',    cover: 'images/scene8_girls_sunset.png', lyrics: '«My girl, my girl, my girl — you will be my girl»' },
-  '9': { videoId: 'T-hswDp-e2I', start: 45,  end: 75,  title: 'Утро',                    artist: 'Дайте танк (!)',     cover: 'images/scene9_morning.png', lyrics: '«Это не первое и не последнее утро...»' }
+  '1': { videoId: '-UzDZMNZQ7Q', start: 0, end: 20, title: 'Моё сердце', artist: 'Сплин', cover: 'images/scene1_seats.png', lyrics: '«Мы не знали друг друга до этого лета...»' },
+  '2': { videoId: 'fgiBmUy4UcM', start: 42, end: 72, title: 'Мы', artist: 'Дайте танк (!)', cover: 'images/scene2_travel.png', lyrics: '«Мы решили: дорога каждая минута...»' },
+  '3': { videoId: 'VG1zmgkDv-g', start: 0, end: 22, title: 'солнце вышло покурить', artist: 'алёна швец.', cover: 'images/scene3_sun_moon.png', lyrics: '«Солнце вышло покурить на балкон...»' },
+  '4': { videoId: '3u9M6NzP0R0', start: 81, end: 110, title: 'Я и твой кот', artist: 'Свидание', cover: 'images/scene4_cats.png', lyrics: '«Я и твой кот греем твою кровать...»' },
+  '5': { videoId: 'JTeKpWp8Psw', start: 125, end: 160, title: 'Fourth of July', artist: 'Sufjan Stevens', cover: 'images/scene5_moon_tender.png', lyrics: '«Did you get enough love, my little dove?...»' },
+  '6': { videoId: 'XLRHkt6WNkg', start: 60, end: 75, title: 'Будь моим смыслом', artist: 'Flëur', cover: 'images/scene6_heart_confession.png', lyrics: '«Пожалуйста, будь моим смыслом...»' },
+  '7': { videoId: 'xpJ_fYyAeYk', start: 95, end: 115, title: 'ХОЧЕШЬ?', artist: 'Земфира', cover: 'images/scene7_sun_lamp.png', lyrics: '«Хочешь солнце вместо лампы?...»' },
+  '8': { videoId: 'iggmiF7DNoM', start: 42, end: 65, title: 'we fell in love in october', artist: 'girl in red', cover: 'images/scene8_girls_sunset.png', lyrics: '«My girl, my girl, my girl — you will be my girl»' },
+  '9': { videoId: 'T-hswDp-e2I', start: 45, end: 75, title: 'Утро', artist: 'Дайте танк (!)', cover: 'images/scene9_morning.png', lyrics: '«Это не первое и не последнее утро...»' }
 };
 
 // ══════════════════════════════════
@@ -29,25 +29,25 @@ const state = {
   transitioning: false
 };
 
-let ytPlayer       = null;   // YT.Player instance
-let ytReady        = false;  // true once onPlayerReady fires
-let ytApiReady     = false;  // true once onYouTubeIframeAPIReady fires
+let ytPlayer = null;   // YT.Player instance
+let ytReady = false;  // true once onPlayerReady fires
+let ytApiReady = false;  // true once onYouTubeIframeAPIReady fires
 let currentTrackId = null;   // which page's track is loaded
-let pendingPageId  = null;   // queued page to play when API finishes loading
-let volumeLevel    = 50;     // 0..100
+let pendingPageId = null;   // queued page to play when API finishes loading
+let volumeLevel = 50;     // 0..100
 
 // ══════════════════════════════════
 //  PAGE ORDER & DOM
 // ══════════════════════════════════
-const pageOrder     = ['cover', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-const navDots       = document.querySelectorAll('.nav-dot');
+const pageOrder = ['cover', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const navDots = document.querySelectorAll('.nav-dot');
 const heartsContainer = document.getElementById('hearts-container');
 
 // ══════════════════════════════════
 //  YOUTUBE IFRAME API — Global callback
 //  Called automatically by the API script
 // ══════════════════════════════════
-window.onYouTubeIframeAPIReady = function() {
+window.onYouTubeIframeAPIReady = function () {
   ytApiReady = true;
   // Don't create the player yet — wait until the user clicks "Начать"
   // so the first interaction gesture allows autoplay.
@@ -104,7 +104,7 @@ function onPlayerReady(event) {
 
 function onPlayerStateChange(event) {
   const playerEl = document.getElementById('custom-music-player');
-  const btn      = document.getElementById('player-btn-play-pause');
+  const btn = document.getElementById('player-btn-play-pause');
   if (!playerEl || !btn) return;
 
   // YT.PlayerState: -1 unstarted, 0 ended, 1 playing, 2 paused, 3 buffering, 5 cued
@@ -190,9 +190,9 @@ function showPlayer() {
 }
 
 function updatePlayerUI(track) {
-  document.getElementById('player-track-title').textContent  = track.title;
+  document.getElementById('player-track-title').textContent = track.title;
   document.getElementById('player-track-artist').textContent = track.artist;
-  document.getElementById('player-cover-img').src            = track.cover || 'images/cover_hero.png';
+  document.getElementById('player-cover-img').src = track.cover || 'images/cover_hero.png';
 
   // Update lyrics tooltip above the player
   const tooltip = document.getElementById('player-lyrics-tooltip');
@@ -211,10 +211,10 @@ function updatePlayerUI(track) {
 // ══════════════════════════════════
 function bindPlayerControls() {
   const playPauseBtn = document.getElementById('player-btn-play-pause');
-  const prevBtn      = document.getElementById('player-btn-prev');
-  const nextBtn      = document.getElementById('player-btn-next');
+  const prevBtn = document.getElementById('player-btn-prev');
+  const nextBtn = document.getElementById('player-btn-next');
   const volumeSlider = document.getElementById('player-volume-slider');
-  const volumeIcon   = document.getElementById('player-volume-icon');
+  const volumeIcon = document.getElementById('player-volume-icon');
 
   playPauseBtn.addEventListener('click', () => {
     if (!ytPlayer || !ytReady) return;
@@ -263,10 +263,10 @@ function bindPlayerControls() {
 function updateVolumeIcon(vol) {
   const icon = document.getElementById('player-volume-icon');
   if (!icon) return;
-  if (vol === 0)       icon.textContent = '🔇';
-  else if (vol < 34)   icon.textContent = '🔈';
-  else if (vol < 67)   icon.textContent = '🔉';
-  else                 icon.textContent = '🔊';
+  if (vol === 0) icon.textContent = '🔇';
+  else if (vol < 34) icon.textContent = '🔈';
+  else if (vol < 67) icon.textContent = '🔉';
+  else icon.textContent = '🔊';
 }
 
 // ══════════════════════════════════
@@ -277,7 +277,7 @@ function goTo(targetId) {
   state.transitioning = true;
 
   const fromPage = document.getElementById(`page-${state.current}`);
-  const toPage   = document.getElementById(`page-${targetId}`);
+  const toPage = document.getElementById(`page-${targetId}`);
 
   if (!toPage) { state.transitioning = false; return; }
 
@@ -286,7 +286,7 @@ function goTo(targetId) {
 
   // Determine direction
   const fromIdx = pageOrder.indexOf(state.current);
-  const toIdx   = pageOrder.indexOf(String(targetId));
+  const toIdx = pageOrder.indexOf(String(targetId));
   const goingForward = toIdx > fromIdx;
 
   // Exit current
@@ -303,7 +303,7 @@ function goTo(targetId) {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       toPage.style.transform = '';
-      toPage.style.opacity   = '';
+      toPage.style.opacity = '';
       toPage.style.transition = 'opacity 0.65s cubic-bezier(0.77,0,0.175,1), transform 0.65s cubic-bezier(0.77,0,0.175,1)';
     });
   });
@@ -417,7 +417,7 @@ document.querySelectorAll('.scene-image-wrap').forEach(wrap => {
   wrap.addEventListener('mousemove', e => {
     const rect = wrap.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width - 0.5) * 12;
-    const y = ((e.clientY - rect.top)  / rect.height - 0.5) * 8;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
     wrap.querySelector('.scene-img').style.transform = `scale(1.04) translate(${x}px, ${y}px)`;
   });
   wrap.addEventListener('mouseleave', () => {
@@ -474,13 +474,13 @@ if (scene5LetterTrigger && loveLetterCard) {
 // ══════════════════════════════════
 //  EASTER EGG: LOVE LETTER & WALKING CATS
 // ══════════════════════════════════
-const LETTER_TEXT = `Моя любимая девочка!
+const LETTER_TEXT = `Катюш
 
 Ты — мой мир, моё солнце и моё утро. Спасибо тебе за каждый твой взгляд, за твою нежную улыбку и за то, как сладко сопят наши кошки на кровати.
 
 Впечатления — действительно наша валюта, и мы с тобой сказочно богаты. Любовь моя, пусть этот маленький музыкальный дневник всегда напоминает тебе о том, как сильно я тебя люблю!
 
-Навсегда твой. ❤️`;
+❤️`;
 
 let letterInterval = null;
 let catsInterval = null;
